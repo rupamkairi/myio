@@ -1,13 +1,12 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
-import Hero from "./components/Hero";
-import NavBar from "./components/NavBar";
+import NavBar from "../components/general/NavBar";
+import Hero from "../components/home/Hero";
 
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>Myio</title>
+        <title>MyIO</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
