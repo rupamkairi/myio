@@ -1,0 +1,37 @@
+.btn {
+  @apply py-2 px-8 font-semibold rounded border-2 text-white;
+}
+.btn:focus,
+.btn:active {
+  @apply outline-none;
+}
+
+.btn-standard {
+  @apply bg-blue-500 border-blue-500;
+}
+.btn-standard:hover {
+  @apply bg-blue-800 border-blue-800;
+}
+
+.btn-hover {
+  @apply bg-gray-100 border-gray-100 text-black;
+}
+.btn-hover:hover {
+  @apply bg-gray-300 border-gray-300 text-black;
+}
+.btn-hover:focus {
+  @apply bg-blue-500 border-blue-500 text-white;
+}
+
+.btn-outline {
+}
+.btn-outline:hover {
+  @apply bg-white;
+}
+
+.btn-nav-tabs {
+  @apply bg-gray-100 border-gray-100 rounded-md text-black font-medium cursor-pointer;
+}
+.btn-nav-tabs-selected {
+  @apply bg-white border-white rounded-md text-black shadow-md font-medium cursor-pointer;
+}

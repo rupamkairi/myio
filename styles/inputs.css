@@ -1,0 +1,6 @@
+.form-text {
+  @apply py-2 px-2 outline-none border-2 rounded border-gray-300;
+}
+.form-text:focus {
+  @apply border-blue-500 ring-2 ring-blue-300;
+}

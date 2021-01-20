@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 html,
 body {
   padding: 0;
@@ -10,4 +6,8 @@ body {
 
 @tailwind base;
 @tailwind components;
+
+@import "./inputs.css";
+@import "./buttons.css";
+
 @tailwind utilities;
