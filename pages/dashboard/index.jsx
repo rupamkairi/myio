@@ -1,9 +1,9 @@
+import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 
 export default function Dashboard() {
   const [navTabsState, setNavTabsState] = useState();
   const [links, setLinks] = useState([]);
-  const [link, setLink] = useState({});
 
   return (
     <div className="container mx-auto">
@@ -44,34 +44,43 @@ export default function Dashboard() {
           <p>{navTabsState}</p>
           {navTabsState && (
             <div>
-              <input
-                className="bordedr-2 border-blue-300"
-                type="text"
-                placeholder="platform"
-                onChange={(e) => {
-                  link["platform"] = e.target.value;
+              <Formik
+                initialValues={{
+                  platform: "",
+                  username: "",
                 }}
-              />
-              <input
-                className="bordedr-2 border-blue-300"
-                type="text"
-                placeholder="username"
-                onChange={(e) => {
-                  link["username"] = e.target.value;
-                }}
-              />
-              <button
-                className="bg-blue-300 px-4 rounded"
-                onClick={() => {
-                  link["category"] = navTabsState;
-
-                  setLinks((prev) => [link, ...prev]);
-
-                  console.log(links);
+                onSubmit={(values, { resetForm }) => {
+                  setLinks((prevLinks) => [
+                    {
+                      category: navTabsState,
+                      ...values,
+                    },
+                    ...prevLinks,
+                  ]);
+                  resetForm();
                 }}
               >
-                Add
-              </button>
+                {({ values }) => (
+                  <Form>
+                    <Field
+                      name="platform"
+                      className="bordedr-2 border-blue-300"
+                      type="text"
+                      placeholder="platform"
+                    />
+                    <Field
+                      name="username"
+                      className="bordedr-2 border-blue-300"
+                      type="text"
+                      placeholder="username"
+                    />
+                    <button className="bg-blue-300 px-4 rounded" type="submit">
+                      Add
+                    </button>
+                    <pre>{JSON.stringify(values, null, 2)}</pre>
+                  </Form>
+                )}
+              </Formik>
             </div>
           )}
         </div>
