@@ -10,11 +10,13 @@
   "dependencies": {
     "autoprefixer": "^10.1.0",
     "formik": "^2.2.6",
+    "mongodb": "^3.6.3",
     "next": "10.0.4",
     "postcss": "^8.2.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "tailwindcss": "^2.0.2",
     "yup": "^0.32.8"
-  }
+  },
+  "devDependencies": {}
 }
