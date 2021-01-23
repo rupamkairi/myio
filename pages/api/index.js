@@ -6,7 +6,9 @@ export default async (req, res) => {
 
   try {
     await client.connect();
+    // console.log(client.isConnected());
     const collection = client.db("myio_guests").collection("link_groups");
+    // console.log(collection.namespace);
     const query = {};
     const groups = await collection.find(query);
     // console.log(await groups.toArray());
@@ -16,11 +18,8 @@ export default async (req, res) => {
       message: "Welcome to Myio API. All Endpoints are working fine.",
       secrets: {
         database: {
-          // local: process.env.DB_URI,
-          // atlas: process.env.ATLAS_URI,
-          // client: client,
-          // database: database,
-          // collection: collection,
+          client_isConnected: client.isConnected(),
+          collection_namespace: collection.namespace,
           // query: query,
           results: await groups.toArray(),
         },
@@ -30,6 +29,14 @@ export default async (req, res) => {
     console.log(err);
     res.json({
       message: "Some Error occured...",
+      secrets: {
+        database: {
+          client_isConnected: client.isConnected(),
+          collection_namespace: collection.namespace,
+          results: await groups.toArray(),
+        },
+      },
+      error: err,
     });
   } finally {
     // await client.close();
