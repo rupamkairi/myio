@@ -26,7 +26,6 @@ export default async (req, res) => {
       },
     });
   } catch (err) {
-    console.log(err);
     res.json({
       message: "Some Error occured...",
       secrets: {
@@ -36,7 +35,6 @@ export default async (req, res) => {
           results: await groups.toArray(),
         },
       },
-      error: err,
     });
   } finally {
     // await client.close();

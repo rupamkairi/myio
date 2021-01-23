@@ -6,12 +6,12 @@ export default function Hero() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
-        <Image
+        {/* <Image
           src="/undraw_social.png"
           alt="Hero Image"
           width={500}
           height={500}
-        />{" "}
+        />{" "} */}
       </div>
       <div>
         <Login />
