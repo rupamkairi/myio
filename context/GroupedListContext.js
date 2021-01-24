@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 
 const GroupedListContext = React.createContext();
 
@@ -7,14 +7,29 @@ export function useGroupedList() {
 }
 
 export function GroupedListProvider({ children }) {
+  const [navTabs, setNavTabs] = useState([]);
   const [navTabsState, setNavTabsState] = useState();
 
+  const addNavTab = (tabName) => {
+    setNavTabs((prevTabs) => [...prevTabs, tabName]);
+  };
+  const removeNavTab = (tabName) => {
+    setNavTabs((prevTabs) => [...prevTabs, tabName]);
+  };
   const changeNavTabsState = (tabName) => {
     setNavTabsState(tabName);
   };
 
+  const value = {
+    navTabs,
+    addNavTab,
+    removeNavTab,
+    navTabsState,
+    changeNavTabsState,
+  };
+
   return (
-    <GroupedListContext.Provider value={{ navTabsState, changeNavTabsState }}>
+    <GroupedListContext.Provider value={value}>
       {children}
     </GroupedListContext.Provider>
   );
