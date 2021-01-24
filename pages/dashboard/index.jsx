@@ -3,10 +3,8 @@ import React, { useState } from "react";
 import GroupedNav from "../../components/dashboard/GroupedList/GroupedNav";
 import GroupedForm from "../../components/dashboard/GroupedList/GroupedForm";
 import GroupedList from "../../components/dashboard/GroupedList/GroupedList";
-import GroupedListAction from "../../components/dashboard/GroupedList/GroupedListAction";
 import GlobalForm from "../../components/dashboard/GlobalList/GlobalForm";
 import GlobalList from "../../components/dashboard/GlobalList/GlobalList";
-import GlobalListActions from "../../components/dashboard/GlobalList/GlobalListActions";
 //
 import { GroupedListProvider } from "../../context/GroupedListContext";
 
@@ -23,13 +21,12 @@ export default function Dashboard() {
         <button className="btn btn-standard ml-4">Add Group</button>
       </div> */}
 
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-2 xl:gap-9">
-        <div className="col-span-2 container">
+      <div className="grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-4 xl:gap-8">
+        <div className="lg:col-span-2 container mx-auto">
           <GroupedListProvider>
             <GroupedNav />
             <GroupedForm />
             <GroupedList />
-            <GroupedListAction />
           </GroupedListProvider>
           {/*  
 
@@ -52,10 +49,9 @@ export default function Dashboard() {
           </div> */}
         </div>
 
-        <div>
+        <div className="lg:col-span-1 container mx-auto">
           <GlobalForm />
           <GlobalList />
-          <GlobalListActions />
         </div>
       </div>
     </div>

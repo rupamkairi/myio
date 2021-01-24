@@ -1,12 +1,15 @@
 import React from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
+//
+import { useGroupedList } from "../../../context/GroupedListContext";
 
-export default function GroupedForm(props) {
+export default function GroupedForm() {
+  const { navTabsState } = useGroupedList();
+
   return (
     <div>
-      Grouped Form
-      {/* <Formik
+      <Formik
         initialValues={{
           platform: "",
           username: "",
@@ -24,7 +27,7 @@ export default function GroupedForm(props) {
         onSubmit={(values, { resetForm }) => {
           setLinks((prevLinks) => [
             {
-              category: props.navTabsState,
+              category: navTabsState,
               ...values,
             },
             ...prevLinks,
@@ -34,7 +37,7 @@ export default function GroupedForm(props) {
       >
         {({ values, errors, handleChange, handleBlur, isValid, dirty }) => (
           <Form>
-            <div className="my-2 p-4 rounded-md shadow-md grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
+            <div className="my-2 p-6 rounded-md shadow-md grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
               <div>
                 <input
                   name="platform"
@@ -70,13 +73,12 @@ export default function GroupedForm(props) {
                 type="submit"
                 disabled={!dirty || !isValid}
               >
-                Add to {props.navTabsState}
+                Add to {navTabsState}
               </button>
             </div>
-
           </Form>
         )}
-      </Formik> */}
+      </Formik>
     </div>
   );
 }
