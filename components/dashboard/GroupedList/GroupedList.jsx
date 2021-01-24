@@ -1,14 +1,14 @@
 import React from "react";
 
-export default function LinksList(props) {
+export default function GroupedList(props) {
   return (
     <div className="my-2 border rounded-md">
-      {props.links?.map((data, key) => (
+      Grouped List
+      {/* {props.links?.map((data, key) => (
         <div
           key={key}
           className="p-4 m-2 rounded hover:bg-blue-100 grid grid-cols-auto md:grid-cols-2 md:grid-flow-col "
         >
-          {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
           <div className="flex">
             <p className="mr-4">{data.platform}</p>
             <p className="font-bold">{data.username}</p>
@@ -19,7 +19,6 @@ export default function LinksList(props) {
           </div>
         </div>
       ))}
-      {/* <pre>{JSON.stringify(props.links, null, 2)}</pre> */}
 
       <div className="px-6 py-4 pb-8 bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
         <div className="font-semibold flex flex-col">
@@ -88,7 +87,7 @@ export default function LinksList(props) {
             disabled
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

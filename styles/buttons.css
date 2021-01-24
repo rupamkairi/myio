@@ -27,9 +27,10 @@
 }
 
 .btn-outline {
+  @apply bg-white border-blue-500 text-blue-500;
 }
 .btn-outline:hover {
-  @apply bg-white;
+  @apply bg-blue-500 text-white;
 }
 
 .btn-nav-tabs {

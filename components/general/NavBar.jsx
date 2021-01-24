@@ -5,7 +5,7 @@ export default function NavBar() {
   const menuItems = ["Pricing", "Blogs"];
 
   return (
-    <div className="container mx-auto py-4 flex justify-between items-center">
+    <div className="container mx-auto py-4 px-4 flex justify-between items-center">
       <span className="text-4xl font-black">MyIO</span>
       <div className="text-base font-medium md:visible">
         <Link href="/dashboard">Dashboard</Link>
