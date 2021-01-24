@@ -1,27 +1,31 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const MongoClient = require("mongodb").MongoClient;
+const { View, FindBy, Add, AddLink } = require("./services/mongo.js");
 
 export default async (req, res) => {
-  const client = new MongoClient(process.env.DB_URI);
-
   try {
-    await client.connect();
-    // console.log(client.isConnected());
-    const collection = client.db("myio_guests").collection("link_groups");
-    // console.log(collection.namespace);
-    const query = {};
-    const groups = await collection.find(query);
-    console.log(await groups.toArray());
-    await groups.forEach((doc) => console.log(doc));
+    // View("myio_guests", "link_groups");
+    // FindBy("myio_guests", "link_groups", { public: true });
+    Add("myio_guests", "link_groups", {
+      group_name: "Rupam's Job Profile",
+      profile_name: "Job",
+      created_on: new Date().toDateString(),
+      public: false,
+    });
+    // AddLink(
+    //   "myio_guests",
+    //   "link_groups",
+    //   { group_name: "Rupam's Hacker Alias" },
+    //   // { platform: "github", username: "rupamkairi" }
+    //   // { platform: "codepen", username: "rupamkairi" }
+    //   // { platform: "dev.to", username: "rupamkairi" }
+    //   { platform: "hackthebox", username: "gREp" }
+    // );
 
     res.json({
       message: "Welcome to Myio API. All Endpoints are working fine.",
       secrets: {
         database: {
-          client_isConnected: client.isConnected(),
-          collection_namespace: collection.namespace,
-          // query: query,
-          results: await groups.toArray(),
+          // db_uri: process.env.DB_URI,
+          // client_isConnected: client.isConnected()
         },
       },
     });
@@ -30,13 +34,10 @@ export default async (req, res) => {
       message: "Some Error occured...",
       secrets: {
         database: {
-          client_isConnected: client.isConnected(),
-          collection_namespace: collection.namespace,
-          results: await groups.toArray(),
+          // client_isConnected: client.isConnected()
         },
       },
     });
   } finally {
-    await client.close();
   }
 };
