@@ -36,7 +36,7 @@ export default function GlobalForm() {
               <div className="mb-4 md:mb-0">
                 <input
                   name="platform"
-                  id="platform"
+                  id="global-platform"
                   className="form-text w-full"
                   type="text"
                   placeholder="platform"
@@ -51,7 +51,7 @@ export default function GlobalForm() {
               <div className="mb-4 md:mb-0">
                 <input
                   name="username"
-                  id="username"
+                  id="global-username"
                   className="form-text w-full"
                   type="text"
                   value={values.username}

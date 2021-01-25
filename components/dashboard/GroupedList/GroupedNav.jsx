@@ -8,7 +8,7 @@ export default function GroupedNav() {
 
   return (
     <div className="mx-auto bg-gray-100 rounded-md shadow-md">
-      <div className="flex flex-wrap justify-center md:justify-start items-center">
+      <div className="flex p-4 flex-wrap justify-center md:justify-start items-center">
         {navTabs.map((data, key) => (
           <div
             key={key}
@@ -24,6 +24,10 @@ export default function GroupedNav() {
           </div>
         ))}
       </div>
+      {/* add nav groups buttons */}
+      {/* <div className="">
+        <button className="btn btn-standard">Add New Group</button>
+      </div> */}
     </div>
   );
 }

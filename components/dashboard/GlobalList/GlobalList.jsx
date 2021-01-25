@@ -12,7 +12,7 @@ export default function GlobalList() {
       {links?.map((data, key) => (
         <div
           key={key}
-          className="p-4 m-2 rounded hover:bg-blue-100 grid grid-cols-auto md:grid-cols-2 md:grid-flow-col "
+          className="p-4 m-2 rounded hover:bg-blue-100 flex flex-row justify-between align-center"
         >
           <div className="flex">
             <p className="mr-4">{data.platform}</p>

@@ -8,16 +8,25 @@ export function useGroupedList() {
 
 export function GroupedListProvider({ children }) {
   const [navTabs, setNavTabs] = useState([]);
-  const [navTabsState, setNavTabsState] = useState();
+  const [navTabsState, setNavTabsState] = useState("");
+  const [links, setLinks] = useState([]);
 
   const addNavTab = (tabName) => {
     setNavTabs((prevTabs) => [...prevTabs, tabName]);
   };
+
   const removeNavTab = (tabName) => {
     setNavTabs((prevTabs) => [...prevTabs, tabName]);
   };
   const changeNavTabsState = (tabName) => {
     setNavTabsState(tabName);
+  };
+
+  const addLink = (linkObj) => {
+    setLinks((prevLinks) => [linkObj, ...prevLinks]);
+  };
+  const removeLink = () => {
+    // setLinks((prevLinks) => {});
   };
 
   const value = {
@@ -26,6 +35,9 @@ export function GroupedListProvider({ children }) {
     removeNavTab,
     navTabsState,
     changeNavTabsState,
+    links,
+    addLink,
+    removeLink,
   };
 
   return (
