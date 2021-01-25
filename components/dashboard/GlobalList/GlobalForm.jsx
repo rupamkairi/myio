@@ -2,10 +2,11 @@ import React from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 //
-// import { useGroupedList } from "../../../context/GroupedListContext";
+import { useGlobalList } from "../../../context/GlobalListContext";
 
 export default function GlobalForm() {
   const navTabsState = "Global";
+  const { addLink } = useGlobalList();
 
   return (
     <div>
@@ -25,20 +26,14 @@ export default function GlobalForm() {
             .required("What! no username?"),
         })}
         onSubmit={(values, { resetForm }) => {
-          setLinks((prevLinks) => [
-            {
-              category: navTabsState,
-              ...values,
-            },
-            ...prevLinks,
-          ]);
+          addLink(values);
           resetForm();
         }}
       >
         {({ values, errors, handleChange, handleBlur, isValid, dirty }) => (
           <Form>
-            <div className="p-6 mb-2 rounded-md shadow-md flex flex-col">
-              <div className="mb-4">
+            <div className="p-6 mb-2 rounded-md shadow-md flex flex-col md:grid md:grid-cols-3 lg:grid-cols-1 md:gap-4">
+              <div className="mb-4 md:mb-0">
                 <input
                   name="platform"
                   id="platform"
@@ -53,7 +48,7 @@ export default function GlobalForm() {
                   {!dirty || errors?.platform}
                 </p>
               </div>
-              <div className="mb-4">
+              <div className="mb-4 md:mb-0">
                 <input
                   name="username"
                   id="username"

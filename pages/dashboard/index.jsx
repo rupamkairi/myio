@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 //
+import { GroupedListProvider } from "../../context/GroupedListContext";
+import { GlobalListProvider } from "../../context/GlobalListContext";
+//
 import GroupedNav from "../../components/dashboard/GroupedList/GroupedNav";
 import GroupedForm from "../../components/dashboard/GroupedList/GroupedForm";
 import GroupedList from "../../components/dashboard/GroupedList/GroupedList";
 import GlobalForm from "../../components/dashboard/GlobalList/GlobalForm";
 import GlobalList from "../../components/dashboard/GlobalList/GlobalList";
-//
-import { GroupedListProvider } from "../../context/GroupedListContext";
 
 export default function Dashboard() {
   const [navTabsState, setNavTabsState] = useState();
@@ -22,7 +23,7 @@ export default function Dashboard() {
       </div> */}
 
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-4 xl:gap-8">
-        <div className="lg:col-span-2 container mx-auto">
+        <div className="lg:col-span-2 container mx-auto invisble">
           <GroupedListProvider>
             <GroupedNav />
             <GroupedForm />
@@ -50,8 +51,10 @@ export default function Dashboard() {
         </div>
 
         <div className="lg:col-span-1 container mx-auto">
-          <GlobalForm />
-          <GlobalList />
+          <GlobalListProvider>
+            <GlobalForm />
+            <GlobalList />
+          </GlobalListProvider>
         </div>
       </div>
     </div>

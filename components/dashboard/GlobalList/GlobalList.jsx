@@ -1,12 +1,12 @@
 import React from "react";
 //
+import { useGlobalList } from "../../../context/GlobalListContext";
+//
 import GlobalListActions from "./GlobalListActions";
 
-export default function GlobalList(props) {
-  const links = [
-    { platform: "twitter", username: "RupamKairi" },
-    { platform: "GitHub", username: "rupamkairi" },
-  ];
+export default function GlobalList() {
+  const { links } = useGlobalList();
+
   return (
     <div className="border rounded-md">
       {links?.map((data, key) => (
