@@ -9,5 +9,6 @@ body {
 
 @import "./inputs.css";
 @import "./buttons.css";
+@import "./cards.css";
 
 @tailwind utilities;

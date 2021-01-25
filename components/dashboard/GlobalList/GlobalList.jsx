@@ -10,10 +10,7 @@ export default function GlobalList() {
   return (
     <div className="border rounded-md">
       {links?.map((data, key) => (
-        <div
-          key={key}
-          className="p-4 m-2 rounded hover:bg-blue-100 flex flex-row justify-between align-center"
-        >
+        <div key={key} className="link-item">
           <div className="flex">
             <p className="mr-4">{data.platform}</p>
             <p className="font-bold">{data.username}</p>

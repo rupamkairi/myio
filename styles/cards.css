@@ -1,0 +1,6 @@
+.link-item {
+  @apply p-4 m-2 rounded flex flex-row justify-between items-center;
+}
+.link-item:hover {
+  @apply bg-blue-100;
+}

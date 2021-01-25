@@ -13,7 +13,7 @@ export default function GroupedList() {
           {links?.map((data, key) => (
             <div
               key={key}
-              className="p-4 m-2 rounded hover:bg-blue-100 grid grid-cols-auto md:grid-cols-2 md:grid-flow-col "
+              className="link-item grid grid-cols-auto md:grid-cols-2 md:grid-flow-col"
             >
               <div className="flex">
                 <p className="mr-4">{data.platform}</p>
