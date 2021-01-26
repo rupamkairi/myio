@@ -1,9 +1,10 @@
 const MongoClient = require("mongodb").MongoClient;
 const { ObjectId } = require("mongodb");
 
-const client = new MongoClient(process.env.DB_URI, {});
 
 export default async (req, res) => {
+  const client = new MongoClient(process.env.DB_URI, {});
+
   await client.connect();
 
   const link = JSON.parse(req.body)["link"];
