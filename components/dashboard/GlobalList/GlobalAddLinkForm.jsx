@@ -2,14 +2,19 @@ import React from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 //
-import { useGroupedList } from "../../../context/GroupedListContext";
+import { useGlobalList } from "../../../context/GlobalListContext";
 
-export default function GroupedForm() {
-  const { navTabsState, addLink } = useGroupedList();
+export default function GlobalAddLinkForm() {
+  const navTabsState = "Global";
+  const { addLink, listObjectId } = useGlobalList();
 
   return (
     <div>
-      {navTabsState !== "" && (
+      {listObjectId === "" ? (
+        <p className="text-center text-sm font-medium py-6 text-gray-500">
+          First give the Group a name...
+        </p>
+      ) : (
         <Formik
           initialValues={{
             platform: "",
@@ -26,17 +31,14 @@ export default function GroupedForm() {
               .required("What! no username?"),
           })}
           onSubmit={(values, { resetForm }) => {
-            addLink({
-              category: navTabsState,
-              ...values,
-            });
+            addLink(values);
             resetForm();
           }}
         >
           {({ values, errors, handleChange, handleBlur, isValid, dirty }) => (
             <Form>
-              <div className="my-2 p-6 rounded-md shadow-md grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
-                <div>
+              <div className="p-6 mb-2 rounded-md shadow-md flex flex-col md:grid md:grid-cols-3 lg:grid-cols-1 md:gap-4">
+                <div className="mb-4 md:mb-0">
                   <input
                     name="platform"
                     id="platform"
@@ -51,7 +53,7 @@ export default function GroupedForm() {
                     {!dirty || errors?.platform}
                   </p>
                 </div>
-                <div>
+                <div className="mb-4 md:mb-0">
                   <input
                     name="username"
                     id="username"
@@ -70,6 +72,20 @@ export default function GroupedForm() {
                   className="btn btn-standard"
                   type="submit"
                   disabled={!dirty || !isValid}
+                  onClick={() => {
+                    fetch(
+                      process.env.NEXT_PUBLIC_API_HOST + "/global/addlink",
+                      {
+                        method: "POST",
+                        body: JSON.stringify({
+                          _id: listObjectId,
+                          link: values,
+                        }),
+                      }
+                    )
+                      .then((res) => res.json())
+                      .then((data) => console.log(data));
+                  }}
                 >
                   Add to {navTabsState}
                 </button>

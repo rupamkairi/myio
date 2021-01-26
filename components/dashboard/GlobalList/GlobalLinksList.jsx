@@ -4,7 +4,7 @@ import { useGlobalList } from "../../../context/GlobalListContext";
 //
 import GlobalListActions from "./GlobalListActions";
 
-export default function GlobalList() {
+export default function GlobalLinksList() {
   const { links } = useGlobalList();
 
   return (

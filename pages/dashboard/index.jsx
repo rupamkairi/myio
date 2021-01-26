@@ -4,11 +4,11 @@ import { GroupedListProvider } from "../../context/GroupedListContext";
 import { GlobalListProvider } from "../../context/GlobalListContext";
 //
 import GroupedNav from "../../components/dashboard/GroupedList/GroupedNav";
-import GroupedForm from "../../components/dashboard/GroupedList/GroupedForm";
-import GroupedList from "../../components/dashboard/GroupedList/GroupedList";
+import GroupedAddLinkForm from "../../components/dashboard/GroupedList/GroupedAddLinkForm";
+import GroupedLinkList from "../../components/dashboard/GroupedList/GroupedLinkList";
 import GlobalListTitle from "../../components/dashboard/GlobalList/GlobalListTitle";
-import GlobalForm from "../../components/dashboard/GlobalList/GlobalForm";
-import GlobalList from "../../components/dashboard/GlobalList/GlobalList";
+import GlobalAddLinkForm from "../../components/dashboard/GlobalList/GlobalAddLinkForm";
+import GlobalLinksList from "../../components/dashboard/GlobalList/GlobalLinksList";
 
 export default function Dashboard() {
   const [navTabsState, setNavTabsState] = useState();
@@ -27,8 +27,8 @@ export default function Dashboard() {
         <div className="invisible h-0 lg:visible lg:h-auto lg:col-span-2 container mx-auto invisble">
           <GroupedListProvider>
             <GroupedNav />
-            <GroupedForm />
-            <GroupedList />
+            <GroupedAddLinkForm />
+            <GroupedLinkList />
           </GroupedListProvider>
           {/*  
 
@@ -54,8 +54,8 @@ export default function Dashboard() {
         <div className="lg:col-span-1 container mx-auto">
           <GlobalListProvider>
             <GlobalListTitle />
-            <GlobalForm />
-            <GlobalList />
+            <GlobalAddLinkForm />
+            <GlobalLinksList />
           </GlobalListProvider>
         </div>
       </div>

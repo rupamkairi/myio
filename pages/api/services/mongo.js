@@ -1,6 +1,8 @@
 const MongoClient = require("mongodb").MongoClient;
 
-const client = new MongoClient(process.env.NEXT_PUBLIC_DB_URI, {});
+const client = new MongoClient(process.env.DB_URI, {
+  useUnifiedTopology: false,
+});
 
 async function View(database, collection) {
   try {

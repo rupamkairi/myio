@@ -3,7 +3,7 @@ import React from "react";
 import { useGroupedList } from "../../../context/GroupedListContext";
 import GroupedListAction from "./GroupedListAction";
 
-export default function GroupedList() {
+export default function GroupedLinkList() {
   const { navTabsState, links } = useGroupedList();
 
   return (
