@@ -27,10 +27,11 @@ export default function GlobalListActions() {
         <input
           type="text"
           className="form-text font-medium tracking-wide"
-          value="myio.vercel.app/09j"
+          value=""
+          placeholder="myio.vercel.app/****"
           disabled
         />
-        <p className="pt-1 text-right text-blue-500 font-bold">Copied!</p>
+        {/* <p className="pt-1 text-right text-blue-500 font-bold">Copied!</p> */}
       </div>
     </div>
   );

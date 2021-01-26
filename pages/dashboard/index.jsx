@@ -6,6 +6,7 @@ import { GlobalListProvider } from "../../context/GlobalListContext";
 import GroupedNav from "../../components/dashboard/GroupedList/GroupedNav";
 import GroupedForm from "../../components/dashboard/GroupedList/GroupedForm";
 import GroupedList from "../../components/dashboard/GroupedList/GroupedList";
+import GlobalListTitle from "../../components/dashboard/GlobalList/GlobalListTitle";
 import GlobalForm from "../../components/dashboard/GlobalList/GlobalForm";
 import GlobalList from "../../components/dashboard/GlobalList/GlobalList";
 
@@ -23,7 +24,7 @@ export default function Dashboard() {
       </div> */}
 
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-4 xl:gap-8">
-        <div className="lg:col-span-2 container mx-auto invisble">
+        <div className="invisible h-0 lg:visible lg:h-auto lg:col-span-2 container mx-auto invisble">
           <GroupedListProvider>
             <GroupedNav />
             <GroupedForm />
@@ -52,6 +53,7 @@ export default function Dashboard() {
 
         <div className="lg:col-span-1 container mx-auto">
           <GlobalListProvider>
+            <GlobalListTitle />
             <GlobalForm />
             <GlobalList />
           </GlobalListProvider>

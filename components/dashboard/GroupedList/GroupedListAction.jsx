@@ -27,14 +27,19 @@ export default function GroupedListAction() {
         <input
           type="text"
           className="form-text font-medium tracking-wide"
-          value="myio.vercel.app/09j"
+          placeholder="Coming Soon..."
           disabled
         />
-        <p className="pt-1 text-right text-blue-500 font-bold">Copied!</p>
+        {/* <p className="pt-1 text-right text-blue-500 font-bold">Copied!</p> */}
       </div>
       <div className="font-semibold flex flex-col">
         <p className="h-12 flex justify-between items-center">For</p>
-        <input type="text" className="form-text" />
+        <input
+          type="text"
+          className="form-text font-medium"
+          placeholder="Coming Soon..."
+          disabled
+        />
       </div>
       <div className="font-semibold flex flex-col">
         <div className="h-12 flex justify-between items-center">
@@ -64,8 +69,8 @@ export default function GroupedListAction() {
         </div>
         <input
           type="text"
-          className="form-text"
-          placeholder="Coming Soon.."
+          className="form-text font-medium"
+          placeholder="Coming Soon..."
           disabled
         />
       </div>

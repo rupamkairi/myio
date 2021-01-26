@@ -4,19 +4,17 @@ export default async (req, res) => {
   try {
     // View("myio_guests", "link_groups");
     // FindBy("myio_guests", "link_groups", { public: true });
-    Add("myio_guests", "link_groups", {
-      group_name: "Rupam's Job Profile",
-      profile_name: "Job",
-      created_on: new Date().toDateString(),
-      public: false,
-    });
+    // Add("myio_guests", "link_groups", {
+    //   group_name: "Rupam's Job Profile",
+    //   profile_name: "Job",
+    //   created_on: new Date().toDateString(),
+    //   public: false,
+    // });
     // AddLink(
     //   "myio_guests",
     //   "link_groups",
     //   { group_name: "Rupam's Hacker Alias" },
-    //   // { platform: "github", username: "rupamkairi" }
-    //   // { platform: "codepen", username: "rupamkairi" }
-    //   // { platform: "dev.to", username: "rupamkairi" }
+    //   { platform: "github", username: "rupamkairi" }
     //   { platform: "hackthebox", username: "gREp" }
     // );
 
