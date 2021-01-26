@@ -8,6 +8,7 @@ export function useGlobalList() {
 
 export function GlobalListProvider({ children }) {
   const [links, setLinks] = useState([]);
+  const [listObjectId, setListObjectId] = useState("");
 
   const addLink = (linkObj) => {
     setLinks((prevLinks) => [linkObj, ...prevLinks]);
@@ -16,10 +17,17 @@ export function GlobalListProvider({ children }) {
     // setLinks((prevLinks) => {});
   };
 
+  const changeListObjectId = (objectId) => {
+    console.log("changeListObjectId: " + objectId);
+    setListObjectId(objectId);
+  };
+
   const value = {
     links,
     addLink,
     removeLink,
+    listObjectId,
+    changeListObjectId,
   };
 
   return (

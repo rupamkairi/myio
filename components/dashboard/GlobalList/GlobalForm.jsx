@@ -6,7 +6,7 @@ import { useGlobalList } from "../../../context/GlobalListContext";
 
 export default function GlobalForm() {
   const navTabsState = "Global";
-  const { addLink } = useGlobalList();
+  const { addLink, listObjectId } = useGlobalList();
 
   return (
     <div>
@@ -36,7 +36,7 @@ export default function GlobalForm() {
               <div className="mb-4 md:mb-0">
                 <input
                   name="platform"
-                  id="global-platform"
+                  id="platform"
                   className="form-text w-full"
                   type="text"
                   placeholder="platform"
@@ -51,7 +51,7 @@ export default function GlobalForm() {
               <div className="mb-4 md:mb-0">
                 <input
                   name="username"
-                  id="global-username"
+                  id="username"
                   className="form-text w-full"
                   type="text"
                   value={values.username}
@@ -67,6 +67,16 @@ export default function GlobalForm() {
                 className="btn btn-standard"
                 type="submit"
                 disabled={!dirty || !isValid}
+                onClick={() => {
+                  console.log(values);
+                  fetch(process.env.NEXT_PUBLIC_API_HOST + "/global/addlink", {
+                    method: "POST",
+                    body: {
+                      _id: listObjectId,
+                      link: values,
+                    },
+                  });
+                }}
               >
                 Add to {navTabsState}
               </button>

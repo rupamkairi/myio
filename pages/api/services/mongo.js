@@ -1,6 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 
-const client = new MongoClient(process.env.DB_URI, {});
+const client = new MongoClient(process.env.NEXT_PUBLIC_DB_URI, {});
 
 async function View(database, collection) {
   try {
@@ -12,13 +12,13 @@ async function View(database, collection) {
       .find()
       .toArray();
 
-    console.log({
-      Log: {
-        invocation: "View",
-        params: { database, collection },
-      },
-      Results: results,
-    });
+    // console.log({
+    //   Log: {
+    //     invocation: "View",
+    //     params: { database, collection },
+    //   },
+    //   Results: results,
+    // });
   } catch (err) {
   } finally {
     await client.close();
@@ -35,13 +35,13 @@ async function FindBy(database, collection, query) {
       .find(query)
       .toArray();
 
-    console.log({
-      Log: {
-        invocation: "FindBy",
-        params: { database, collection, query },
-      },
-      Results: results,
-    });
+    // console.log({
+    //   Log: {
+    //     invocation: "FindBy",
+    //     params: { database, collection, query },
+    //   },
+    //   Results: results,
+    // });
   } catch (err) {
   } finally {
     await client.close();
@@ -52,19 +52,20 @@ async function Add(database, collection, document) {
   try {
     await client.connect();
 
-    // const results = await client
-    //   .db(database)
-    //   .collection(collection)
-    //   .insertOne(document);
+    const result = await client
+      .db(database)
+      .collection(collection)
+      .insertOne(document);
 
-    console.log({
-      Log: {
-        invocation: "Add",
-        params: { database, collection },
-        document: document,
-      },
-      // Results: results,
-    });
+    // console.log({
+    //   Log: {
+    //     invocation: "Add",
+    //     params: { database, collection },
+    //     document: document,
+    //   },
+    //   Results: result,
+    // });
+    return result;
   } catch (err) {
   } finally {
     await client.close();
@@ -75,7 +76,7 @@ async function AddLink(database, collection, query, link) {
   try {
     await client.connect();
 
-    const results = await client
+    const result = await client
       .db(database)
       .collection(collection)
       .findOneAndUpdate(query, {
@@ -91,13 +92,14 @@ async function AddLink(database, collection, query, link) {
         arrayFilters: [{"el.platform" : { $eq: github }}]})
      */
 
-    console.log({
-      Log: {
-        invocation: "AddLink",
-        params: { database, collection, query, link },
-      },
-      Results: results,
-    });
+    // console.log({
+    //   Log: {
+    //     invocation: "AddLink",
+    //     params: { database, collection, query, link },
+    //   },
+    //   Results: result,
+    // });
+    return result;
   } catch (err) {
     console.log(err);
   } finally {
