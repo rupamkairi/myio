@@ -7,13 +7,13 @@ export default function Login() {
     <div className="w-full flex flex-col">
       <div className="mx-auto flex flex-col">
         <button
-          className={`btn btn-outline hover:bg-${orange_base} border-${orange_base} text-${orange_base}`}
+          className={`py-2 px-8 font-semibold rounded-md border-2 bg-white text-${orange_base} border-${orange_base} hover:bg-${orange_base} hover:text-white`}
         >
           Login with Google
         </button>
         <br className="py-2" />
         <button
-          className={`btn btn-outline hover:bg-${black_base} border-${black_base} text-${black_base}`}
+          className={`py-2 px-8 font-semibold rounded-md border-2 bg-white text-${black_base} border-${black_base} hover:bg-${black_base} hover:text-white`}
         >
           Login with Apple
         </button>

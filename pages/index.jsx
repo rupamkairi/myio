@@ -1,7 +1,10 @@
 import React from "react";
 import Head from "next/head";
-import NavBar from "../components/general/NavBar";
+import NavBar from "../components/home/NavBar";
 import Hero from "../components/home/Hero";
+import Features from "../components/home/Features";
+import Pricing from "../components/home/Pricing";
+import Footer from "../components/home/Footer";
 
 export default function Home() {
   // const [state, setState] = useState();
@@ -31,6 +34,9 @@ export default function Home() {
       </Head>
       <NavBar />
       <Hero />
+      <Features />
+      <Pricing />
+      <Footer />
       {/* <pre className="text-xs">{JSON.stringify(state, null, 2)}</pre> */}
     </div>
   );
