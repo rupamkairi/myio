@@ -1,6 +1,10 @@
 import React from "react";
+//
+import { useGlobalList } from "../../../context/GlobalListContext";
 
 export default function GlobalListActions() {
+  const { listObjectId } = useGlobalList();
+
   return (
     <div className="px-6 py-4 pb-8 bg-gray-100">
       <div className="font-semibold flex flex-col">
@@ -29,6 +33,7 @@ export default function GlobalListActions() {
           className="form-text font-medium tracking-wide"
           value=""
           placeholder="myio.vercel.app/****"
+          value={`myio.vercel.app/${listObjectId}`}
           disabled
         />
         {/* <p className="pt-1 text-right text-blue-500 font-bold">Copied!</p> */}

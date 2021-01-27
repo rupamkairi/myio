@@ -11,10 +11,6 @@ export default function GuestLinksList() {
     { platform: "GitHub", username: "rupamkairi" },
     { platform: "twitter", username: "RupamKairi" },
     { platform: "GitHub", username: "rupamkairi" },
-    { platform: "twitter", username: "RupamKairi" },
-    { platform: "GitHub", username: "rupamkairi" },
-    { platform: "twitter", username: "RupamKairi" },
-    { platform: "GitHub", username: "rupamkairi" },
   ];
   return (
     <div>
