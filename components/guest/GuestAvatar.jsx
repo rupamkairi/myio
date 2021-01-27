@@ -4,7 +4,7 @@ import { AvatarGenerator } from "random-avatar-generator";
 import { useGuestLinksList } from "../../context/GuestLinkListContext";
 
 export default function GuestAvatar(props) {
-  const { changeUid } = useGuestLinksList();
+  const { changeUid, userInfo } = useGuestLinksList();
   changeUid(props.uid);
 
   const generator = new AvatarGenerator();
@@ -13,7 +13,7 @@ export default function GuestAvatar(props) {
   return (
     <div className="mx-auto flex flex-col justify-center items-center py-6">
       <img className="rounded-full pb-4" src={avatar} alt="user_avatar" />
-      <p className="text-3xl font-black">{props.uid}</p>
+      <p className="text-3xl font-black">{userInfo?.group_title}</p>
     </div>
   );
 }

@@ -1,8 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 
-const client = new MongoClient(process.env.DB_URI, {});
-
 export default async (req, res) => {
+  const client = new MongoClient(process.env.DB_URI, {});
   await client.connect();
 
   const document = {
