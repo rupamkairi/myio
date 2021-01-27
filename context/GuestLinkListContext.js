@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 const GuestLinksListContext = React.createContext();
 
@@ -11,8 +11,16 @@ export function GuestLinksListProvider({ children }) {
 
   const changeUid = (newUid) => {
     setUid(newUid);
-    console.log(uid);
   };
+
+  useEffect(() => {
+    if (uid) {
+      console.log(uid);
+      fetch(process.env.NEXT_PUBLIC_API_HOST + "/global/find")
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
+  }, [uid]);
 
   const value = {
     uid,

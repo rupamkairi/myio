@@ -23,4 +23,5 @@ export default async (req, res) => {
     _id: result.insertedId,
     ops: result.ops,
   });
+  await client.close();
 };
