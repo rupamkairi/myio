@@ -1,20 +1,14 @@
 import React from "react";
 
 export default function Login() {
-  const orange_base = "yellow-600";
-  const black_base = "black";
   return (
     <div className="w-full flex flex-col">
       <div className="mx-auto flex flex-col">
-        <button
-          className={`py-2 px-8 font-semibold rounded-md border-2 bg-white text-${orange_base} border-${orange_base} hover:bg-${orange_base} hover:text-white`}
-        >
+        <button className="py-2 px-8 font-semibold rounded-md border-2 bg-white text-yellow-600 border-yellow-600 hover:bg-yellow-600 hover:text-white">
           Login with Google
         </button>
         <br className="py-2" />
-        <button
-          className={`py-2 px-8 font-semibold rounded-md border-2 bg-white text-${black_base} border-${black_base} hover:bg-${black_base} hover:text-white`}
-        >
+        <button className="py-2 px-8 font-semibold rounded-md border-2 bg-white text-black border-black hover:bg-black hover:text-white">
           Login with Apple
         </button>
         <hr className="my-4" />
