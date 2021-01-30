@@ -39,3 +39,7 @@
 .btn-nav-tabs-selected {
   @apply bg-white border-white rounded-md text-black shadow-md font-medium cursor-pointer;
 }
+
+.icon {
+  @apply w-4 h-4;
+}

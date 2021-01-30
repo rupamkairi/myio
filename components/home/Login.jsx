@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Login() {
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col py-4">
       <div className="mx-auto flex flex-col">
         <button className="py-2 px-8 font-semibold rounded-md border-2 bg-white text-yellow-600 border-yellow-600 hover:bg-yellow-600 hover:text-white">
           Login with Google

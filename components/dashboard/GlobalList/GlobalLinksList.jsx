@@ -1,24 +1,24 @@
 import React from "react";
+import { date } from "yup";
 //
 import { useGlobalList } from "../../../context/GlobalListContext";
 //
+import GlobalLinkItem from "./GlobalLinkItem";
 import GlobalListActions from "./GlobalListActions";
 
 export default function GlobalLinksList() {
-  const { links } = useGlobalList();
+  let { links } = useGlobalList();
+  links = [
+    { platform: "twitter", username: "RupamKairi" },
+    { platform: "GitHub", username: "rupamkairi" },
+    { platform: "Hashnode", username: "rupamkairi" },
+  ];
 
   return (
     <div className="border rounded-md">
       {links?.map((data, key) => (
-        <div key={key} className="link-item">
-          <div className="flex">
-            <p className="mr-4">{data.platform}</p>
-            <p className="font-bold">{data.username}</p>
-          </div>
-          <div className="flex justify-end">
-            <div>more</div>
-            <div>actions</div>
-          </div>
+        <div key={key}>
+          <GlobalLinkItem platform={data.platform} username={data.username} />
         </div>
       ))}
       <GlobalListActions />

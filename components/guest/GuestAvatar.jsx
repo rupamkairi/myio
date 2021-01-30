@@ -9,14 +9,17 @@ export default function GuestAvatar(props) {
   changeUid(props.uid);
 
   const generator = new AvatarGenerator();
-  const avatar = generator.generateRandomAvatar();
 
   return (
     <div className="mx-auto flex flex-col justify-center items-center py-6">
       <Head>
         <title>{userInfo?.group_title}</title>
       </Head>
-      <img className="rounded-full pb-4" src={avatar} alt="user_avatar" />
+      <img
+        className="rounded-full pb-4"
+        src={userInfo ? generator.generateRandomAvatar() : null}
+        alt="user_avatar"
+      />
       <p className="text-3xl font-black">{userInfo?.group_title}</p>
     </div>
   );
