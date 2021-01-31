@@ -3,7 +3,13 @@ export default async (req, res) => {
 
   // await client.connect();
 
-  // const link = JSON.parse(req.body)["link"];
+  const _id = JSON.parse(req.body)["_id"];
+
+  const field = JSON.parse(req.body)["field"];
+
+  const edit = JSON.parse(req.body)["edit"];
+
+  console.log({ _id, field, edit });
   // const query = { _id: ObjectId(JSON.parse(req.body)["_id"]) };
 
   // const result = await client

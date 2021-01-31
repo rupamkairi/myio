@@ -6,7 +6,8 @@ import GlobalLinkItem from "./GlobalLinkItem";
 import GlobalListActions from "./GlobalListActions";
 
 export default function GlobalLinksList() {
-  let { links } = useGlobalList();
+  const { listGroupObject } = useGlobalList();
+  let links = listGroupObject?.links;
   // links = [
   //   { platform: "twitter", username: "RupamKairi" },
   //   { platform: "GitHub", username: "rupamkairi" },
@@ -17,7 +18,7 @@ export default function GlobalLinksList() {
     <div className="border rounded-md">
       {links?.map((data, key) => (
         <div key={key}>
-          <GlobalLinkItem platform={data.platform} username={data.username} />
+          <GlobalLinkItem item={data} />
         </div>
       ))}
       <GlobalListActions />

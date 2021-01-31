@@ -44,7 +44,7 @@ export default function GlobalListActions() {
           disabled
         />
         <p className="pt-1 text-right text-blue-500 font-bold">
-          {copied ? "Copied" : ""}!
+          {copied ? "Copied!" : ""}
         </p>
       </div>
     </div>

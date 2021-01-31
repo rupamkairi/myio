@@ -9,6 +9,7 @@ export function useGlobalList() {
 export function GlobalListProvider({ children }) {
   const [links, setLinks] = useState([]);
   const [listObjectId, setListObjectId] = useState("");
+  const [listGroupObject, setListGroupObject] = useState();
 
   const addLink = (linkObj) => {
     setLinks((prevLinks) => [linkObj, ...prevLinks]);
@@ -22,12 +23,19 @@ export function GlobalListProvider({ children }) {
     setListObjectId(objectId);
   };
 
+  const changeListGroupObject = (object) => {
+    console.log(object);
+    setListGroupObject(object);
+  };
+
   const value = {
     links,
     addLink,
     removeLink,
     listObjectId,
     changeListObjectId,
+    listGroupObject,
+    changeListGroupObject,
   };
 
   return (

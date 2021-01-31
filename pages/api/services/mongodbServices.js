@@ -1,4 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
+const { ObjectId } = require("mongodb").ObjectId;
 const { Connect } = require("./mongodbCaching");
 
 async function View(database, collection) {
@@ -89,9 +90,56 @@ async function AddLink(database, collection, query, link) {
     const result = await client
       .db(database)
       .collection(collection)
+      .findOneAndUpdate(
+        query,
+        {
+          $push: {
+            links: {
+              _id: ObjectId(),
+              ...link,
+            },
+          },
+        },
+        { returnOriginal: false }
+      );
+
+    // using unifiedtopology will give error for adding same things multiple times.
+    /**
+     * update using arrayfilters
+     * {upsert:true, returnOriginal: false,
+        arrayFilters: [{"el.platform" : { $eq: github }}]})
+     */
+
+    // console.log({
+    //   Log: {
+    //     invocation: "AddLink",
+    //     params: { database, collection, query, link },
+    //   },
+    //   Results: result,
+    // });
+
+    return result;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await client.close();
+  }
+}
+
+async function EditLink(database, collection, query, link) {
+  const client = new MongoClient(process.env.DB_URI);
+  try {
+    await client.connect();
+
+    const result = await client
+      .db(database)
+      .collection(collection)
       .findOneAndUpdate(query, {
         $push: {
-          links: link,
+          links: {
+            _id: ObjectId(),
+            ...link,
+          },
         },
       });
 
@@ -118,4 +166,4 @@ async function AddLink(database, collection, query, link) {
   }
 }
 
-module.exports = { View, FindBy, Add, AddLink };
+module.exports = { View, FindBy, Add, AddLink, EditLink };

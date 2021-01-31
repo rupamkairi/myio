@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+//
+import { useGlobalList } from "../../../context/GlobalListContext";
 
 export default function GlobalLinkItem(props) {
   const [edit, setEdit] = useState(false);
+  const editRef = useRef();
   const [visible, setVisible] = useState(true);
+
+  const { changeListGroupObject } = useGlobalList();
 
   return (
     <div
@@ -11,7 +16,7 @@ export default function GlobalLinkItem(props) {
       }
     >
       <div className="flex flex-grow">
-        <p className="mr-4">{props.platform}</p>
+        <p className="mr-4">{props.item.platform}</p>
         <p
           className={
             "font-bold w-full mr-1 " +
@@ -20,14 +25,30 @@ export default function GlobalLinkItem(props) {
               : "")
           }
           contentEditable={edit}
+          ref={editRef}
         >
-          {props.username}
+          {props.item.username}
         </p>
       </div>
       <div className="flex justify-end">
-        <button
+        {/* <button
           className="p-1 rounded-full text-green-500 hover:bg-green-100 hover:text-green-700 focus:outline-none active:outline-none"
           onClick={() => {
+            if (edit) {
+              console.log("saving...");
+              fetch(process.env.NEXT_PUBLIC_API_HOST + "/global/editlink", {
+                method: "POST",
+                body: JSON.stringify({
+                  _id: props.item._id,
+                  field: "username",
+                  edit: editRef.current.innerText,
+                }),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  // changeListGroupObject(data.result.value)
+                });
+            }
             setEdit((prevEdit) => !prevEdit);
           }}
         >
@@ -62,8 +83,7 @@ export default function GlobalLinkItem(props) {
               />
             </svg>
           )}
-        </button>
-
+        </button> */}
         <button className="p-1 rounded-full text-red-500 hover:bg-red-100 hover:text-red-700 focus:outline-none active:outline-none">
           <svg
             className="icon"

@@ -6,7 +6,7 @@ import { useGlobalList } from "../../../context/GlobalListContext";
 
 export default function GlobalAddLinkForm() {
   const navTabsState = "Global";
-  const { addLink, listObjectId } = useGlobalList();
+  const { addLink, listObjectId, changeListGroupObject } = useGlobalList();
 
   return (
     <div>
@@ -84,7 +84,9 @@ export default function GlobalAddLinkForm() {
                       }
                     )
                       .then((res) => res.json())
-                      .then((data) => console.log(data));
+                      .then((data) => {
+                        changeListGroupObject(data.result.value);
+                      });
                   }}
                 >
                   Add to {navTabsState}
