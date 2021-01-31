@@ -1,4 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
+const { Connect } = require("./mongodbCaching");
 
 async function View(database, collection) {
   const client = new MongoClient(process.env.DB_URI);
@@ -27,28 +28,31 @@ async function View(database, collection) {
 }
 
 async function FindBy(database, collection, query) {
-  const client = new MongoClient(process.env.DB_URI);
-  try {
-    await client.connect();
+  // const client = new MongoClient(process.env.DB_URI);
+  // try {
+  //   await client.connect();
 
-    const results = await client
-      .db(database)
-      .collection(collection)
-      .findOne(query);
+  // const results = await client
+  //   .db(database)
+  //   .collection(collection)
+  //   .findOne(query);
 
-    // console.log({
-    //   Log: {
-    //     invocation: "FindBy",
-    //     params: { database, collection, query },
-    //   },
-    //   Results: results,
-    // });
+  const db = await Connect();
+  const results = await db.collection(collection).findOne(query);
 
-    return results;
-  } catch (err) {
-  } finally {
-    await client.close();
-  }
+  // console.log({
+  //   Log: {
+  //     invocation: "FindBy",
+  //     params: { database, collection, query },
+  //   },
+  //   Results: results,
+  // });
+
+  return results;
+  // } catch (err) {
+  // } finally {
+  //   await client.close();
+  // }
 }
 
 async function Add(database, collection, document) {
