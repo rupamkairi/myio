@@ -1,5 +1,4 @@
 import React from "react";
-import { date } from "yup";
 //
 import { useGlobalList } from "../../../context/GlobalListContext";
 //
@@ -8,11 +7,11 @@ import GlobalListActions from "./GlobalListActions";
 
 export default function GlobalLinksList() {
   let { links } = useGlobalList();
-  links = [
-    { platform: "twitter", username: "RupamKairi" },
-    { platform: "GitHub", username: "rupamkairi" },
-    { platform: "Hashnode", username: "rupamkairi" },
-  ];
+  // links = [
+  //   { platform: "twitter", username: "RupamKairi" },
+  //   { platform: "GitHub", username: "rupamkairi" },
+  //   { platform: "Hashnode", username: "rupamkairi" },
+  // ];
 
   return (
     <div className="border rounded-md">

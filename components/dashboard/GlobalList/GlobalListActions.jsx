@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 //
 import { useGlobalList } from "../../../context/GlobalListContext";
 
 export default function GlobalListActions() {
+  const [copied, setCopied] = useState(false);
   const { listObjectId } = useGlobalList();
 
   return (
@@ -11,7 +12,13 @@ export default function GlobalListActions() {
         <div className="h-12 flex justify-between items-center">
           <div>Share this List</div>
 
-          <button className="text-blue-500 focus:outline-none active:outline-none">
+          <button
+            className="text-blue-500 focus:outline-none active:outline-none"
+            onClick={() => {
+              copyLinkToClipboard(listObjectId);
+              setCopied(true);
+            }}
+          >
             <svg
               className="w-6 h-6 md:w-5 md:h-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -36,8 +43,16 @@ export default function GlobalListActions() {
           value={`myio.vercel.app/${listObjectId}`}
           disabled
         />
-        {/* <p className="pt-1 text-right text-blue-500 font-bold">Copied!</p> */}
+        <p className="pt-1 text-right text-blue-500 font-bold">
+          {copied ? "Copied" : ""}!
+        </p>
       </div>
     </div>
   );
+}
+
+function copyLinkToClipboard(linkId) {
+  // console.log(process.env.NEXT_PUBLIC_API_HOST.replace("api", linkId));
+  const copyText = process.env.NEXT_PUBLIC_API_HOST.replace("api", linkId);
+  navigator.clipboard.writeText(copyText);
 }

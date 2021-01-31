@@ -1,10 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 
-const client = new MongoClient(process.env.DB_URI, {
-  useUnifiedTopology: false,
-});
-
 async function View(database, collection) {
+  const client = new MongoClient(process.env.DB_URI);
   try {
     await client.connect();
 
@@ -21,6 +18,8 @@ async function View(database, collection) {
     //   },
     //   Results: results,
     // });
+
+    return results;
   } catch (err) {
   } finally {
     await client.close();
@@ -28,14 +27,14 @@ async function View(database, collection) {
 }
 
 async function FindBy(database, collection, query) {
+  const client = new MongoClient(process.env.DB_URI);
   try {
     await client.connect();
 
     const results = await client
       .db(database)
       .collection(collection)
-      .find(query)
-      .toArray();
+      .findOne(query);
 
     // console.log({
     //   Log: {
@@ -44,6 +43,8 @@ async function FindBy(database, collection, query) {
     //   },
     //   Results: results,
     // });
+
+    return results;
   } catch (err) {
   } finally {
     await client.close();
@@ -51,6 +52,7 @@ async function FindBy(database, collection, query) {
 }
 
 async function Add(database, collection, document) {
+  const client = new MongoClient(process.env.DB_URI);
   try {
     await client.connect();
 
@@ -67,6 +69,7 @@ async function Add(database, collection, document) {
     //   },
     //   Results: result,
     // });
+
     return result;
   } catch (err) {
   } finally {
@@ -75,6 +78,7 @@ async function Add(database, collection, document) {
 }
 
 async function AddLink(database, collection, query, link) {
+  const client = new MongoClient(process.env.DB_URI);
   try {
     await client.connect();
 
@@ -101,6 +105,7 @@ async function AddLink(database, collection, query, link) {
     //   },
     //   Results: result,
     // });
+
     return result;
   } catch (err) {
     console.log(err);

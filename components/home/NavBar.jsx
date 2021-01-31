@@ -17,10 +17,8 @@ export default function NavBar() {
         </div>
         <div className="text-base font-medium">
           {menuItems.map((data, key) => (
-            <span className="mx-2">
-              <Link key={key} href={`#${data}`}>
-                {data}
-              </Link>
+            <span key={key} className="mx-2">
+              <Link href={`#${data}`}>{data}</Link>
             </span>
           ))}
         </div>
