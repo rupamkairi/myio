@@ -84,7 +84,22 @@ export default function GlobalLinkItem(props) {
             </svg>
           )}
         </button> */}
-        <button className="p-1 rounded-full text-red-500 hover:bg-red-100 hover:text-red-700 focus:outline-none active:outline-none">
+        <button
+          className="p-1 rounded-full text-red-500 hover:bg-red-100 hover:text-red-700 focus:outline-none active:outline-none"
+          onClick={() => {
+            console.log("delete link...");
+            fetch(process.env.NEXT_PUBLIC_API_HOST + "/global/removelink", {
+              method: "POST",
+              body: JSON.stringify({
+                linkId: props.item._id,
+              }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                changeListGroupObject(data.result.value);
+              });
+          }}
+        >
           <svg
             className="icon"
             xmlns="http://www.w3.org/2000/svg"
