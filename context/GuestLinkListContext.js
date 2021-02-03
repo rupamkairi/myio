@@ -25,7 +25,7 @@ export function GuestLinksListProvider({ children }) {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           setUserInfo(data.result);
         });
     }

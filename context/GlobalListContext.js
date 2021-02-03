@@ -19,12 +19,12 @@ export function GlobalListProvider({ children }) {
   };
 
   const changeListObjectId = (objectId) => {
-    console.log("changeListObjectId: " + objectId);
+    // console.log("changeListObjectId: " + objectId);
     setListObjectId(objectId);
   };
 
   const changeListGroupObject = (object) => {
-    console.log(object);
+    // console.log(object);
     setListGroupObject(object);
   };
 

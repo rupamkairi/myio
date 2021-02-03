@@ -28,7 +28,7 @@ export default function GlobalListTitle() {
               })
                 .then((res) => res.json())
                 .then((data) => {
-                  console.log(data);
+                  // console.log(data);
                   // console.log(data.result.ops._id);
                   changeListObjectId(data._id);
                   setEditState(false);
