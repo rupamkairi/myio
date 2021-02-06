@@ -18,7 +18,7 @@ export default function GuestAvatar(props) {
       <img
         className="rounded-full pb-4"
         src={userInfo ? generator.generateRandomAvatar() : null}
-        alt="user_avatar"
+        alt="User is Loading..."
       />
       <p className="px-2 text-3xl font-black">{userInfo?.group_title}</p>
     </div>

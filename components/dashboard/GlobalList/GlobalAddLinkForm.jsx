@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useGlobalList } from "../../../context/GlobalListContext";
 
 export default function GlobalAddLinkForm() {
-  const navTabsState = "Global";
+  // const navTabsState = "Global";
   const { addLink, listObjectId, changeListGroupObject } = useGlobalList();
 
   return (
@@ -89,7 +89,7 @@ export default function GlobalAddLinkForm() {
                       });
                   }}
                 >
-                  Add to {navTabsState}
+                  Add
                 </button>
               </div>
             </Form>

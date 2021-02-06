@@ -1,6 +1,7 @@
 import React from "react";
 //
 import { useGroupedList } from "../../../context/GroupedListContext";
+import GroupedLinkItem from "./GroupedLinkItem";
 import GroupedListAction from "./GroupedListAction";
 
 export default function GroupedLinkList() {
@@ -11,18 +12,8 @@ export default function GroupedLinkList() {
       {navTabsState !== "" ? (
         <div className="border rounded-md">
           {links?.map((data, key) => (
-            <div
-              key={key}
-              className="link-item grid grid-cols-auto md:grid-cols-2 md:grid-flow-col"
-            >
-              <div className="flex">
-                <p className="mr-4">{data.platform}</p>
-                <p className="font-bold">{data.username}</p>
-              </div>
-              <div className="flex justify-end">
-                <div>more</div>
-                <div>actions</div>
-              </div>
+            <div key={key}>
+              <GroupedLinkItem item={data} />
             </div>
           ))}
           <GroupedListAction />

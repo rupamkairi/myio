@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
 //
-import { useGlobalList } from "../../../context/GlobalListContext";
+// import { useGlobalList } from "../../../context/GlobalListContext";
 
-export default function GlobalLinkItem(props) {
+export default function GroupedLinkItem(props) {
   const [edit, setEdit] = useState(false);
   const editRef = useRef();
   const [visible, setVisible] = useState(true);
 
-  const { changeListGroupObject } = useGlobalList();
+  // const { changeListGroupObject } = useGlobalList();
 
   return (
     <div
@@ -31,23 +31,23 @@ export default function GlobalLinkItem(props) {
         </p>
       </div>
       <div className="flex justify-end">
-        {/* <button
+        <button
           className="p-1 rounded-full text-green-500 hover:bg-green-100 hover:text-green-700 focus:outline-none active:outline-none"
           onClick={() => {
             if (edit) {
               console.log("saving...");
-              fetch(process.env.NEXT_PUBLIC_API_HOST + "/global/editlink", {
-                method: "POST",
-                body: JSON.stringify({
-                  _id: props.item._id,
-                  field: "username",
-                  edit: editRef.current.innerText,
-                }),
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                  // changeListGroupObject(data.result.value)
-                });
+              // fetch(process.env.NEXT_PUBLIC_API_HOST + "/global/editlink", {
+              //   method: "POST",
+              //   body: JSON.stringify({
+              //     _id: props.item._id,
+              //     field: "username",
+              //     edit: editRef.current.innerText,
+              //   }),
+              // })
+              //   .then((res) => res.json())
+              //   .then((data) => {
+              //     // changeListGroupObject(data.result.value)
+              //   });
             }
             setEdit((prevEdit) => !prevEdit);
           }}
@@ -83,21 +83,21 @@ export default function GlobalLinkItem(props) {
               />
             </svg>
           )}
-        </button> */}
+        </button>
         <button
           className="p-1 rounded-full text-red-500 hover:bg-red-100 hover:text-red-700 focus:outline-none active:outline-none"
           onClick={() => {
-            console.log("delete link...");
-            fetch(process.env.NEXT_PUBLIC_API_HOST + "/global/removelink", {
-              method: "POST",
-              body: JSON.stringify({
-                linkId: props.item._id,
-              }),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                changeListGroupObject(data.result.value);
-              });
+            // console.log("delete link...");
+            // fetch(process.env.NEXT_PUBLIC_API_HOST + "/global/removelink", {
+            //   method: "POST",
+            //   body: JSON.stringify({
+            //     linkId: props.item._id,
+            //   }),
+            // })
+            //   .then((res) => res.json())
+            //   .then((data) => {
+            //     changeListGroupObject(data.result.value);
+            //   });
           }}
         >
           <svg
@@ -115,7 +115,7 @@ export default function GlobalLinkItem(props) {
             />
           </svg>
         </button>
-        {/* <button
+        <button
           className="p-1 rounded-full text-indigo-500 hover:text-indigo-700 focus:outline-none active:outline-none"
           onClick={() => {
             setVisible((prevVisible) => !prevVisible);
@@ -150,7 +150,7 @@ export default function GlobalLinkItem(props) {
               <path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z" />
             </svg>
           )}
-        </button> */}
+        </button>
       </div>
     </div>
   );
