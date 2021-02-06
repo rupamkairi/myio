@@ -1,5 +1,7 @@
+import { RemoveLink } from "../services/mongodbServices";
+
 const MongoClient = require("mongodb").MongoClient;
-const ObjectId = require("mongodb").ObjectId;
+const { ObjectId } = require("mongodb");
 
 export default async (req, res) => {
   const client = new MongoClient(process.env.DB_URI, {});
@@ -15,13 +17,11 @@ export default async (req, res) => {
       },
     },
   };
-  const result = await client
-    .db("myio_guests")
-    .collection("link_groups")
-    .findOneAndUpdate(query, update, { returnOriginal: false });
+
+  const result = await RemoveLink("myio_guests", "link_groups", query, update);
 
   res.json({
-    message: "link edited successfully",
+    message: "link removed successfully",
     result: result,
   });
 
