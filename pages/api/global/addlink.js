@@ -3,9 +3,7 @@ const { AddLink } = require("../services/mongodbServices");
 
 export default async (req, res) => {
   const query = { _id: ObjectId(JSON.parse(req.body)["_id"]) };
-
   const link = JSON.parse(req.body)["link"];
-
   const update = {
     $push: {
       links: {
