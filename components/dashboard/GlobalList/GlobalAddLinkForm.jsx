@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Formik } from "formik";
-import * as Yup from "yup";
+import { object, string } from "yup";
 //
 import { useGlobalList } from "../../../context/GlobalListContext";
 
@@ -19,16 +19,20 @@ export default function GlobalAddLinkForm() {
           initialValues={{
             platform: "",
             username: "",
+            profile_link: "",
           }}
-          validationSchema={Yup.object().shape({
-            platform: Yup.string()
-              .min(2, "Too Short!")
-              .max(32, "Too Long!")
+          validationSchema={object().shape({
+            platform: string()
+              .min(2, "Platform name is too short!")
+              .max(32, "Platform name is too long!")
               .required("You seems from nowhere."),
-            username: Yup.string()
-              .min(2, "Too Short!")
-              .max(64, "Too Long!")
+            username: string()
+              .min(2, "Username name is too short!")
+              .max(64, "Username name is too short!")
               .required("What! no username?"),
+            profile_link: string().url(
+              "This does not seem like a valid url. Give valid one or remove."
+            ),
           })}
           onSubmit={(values, { resetForm }) => {
             addLink(values);
@@ -66,6 +70,21 @@ export default function GlobalAddLinkForm() {
                   />
                   <p className="text-red-500 text-sm font-semibold">
                     {!dirty || errors?.username}
+                  </p>
+                </div>
+                <div className="mb-4 md:mb-0">
+                  <input
+                    name="profile_link"
+                    id="profile_link"
+                    className="form-text w-full"
+                    type="text"
+                    value={values.profile_link}
+                    placeholder="http://example.com/user"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  <p className="text-red-500 text-sm font-semibold">
+                    {!dirty || errors?.profile_link}
                   </p>
                 </div>
                 <button
