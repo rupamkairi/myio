@@ -88,7 +88,7 @@ export default function GlobalAddLinkForm() {
                   </p>
                 </div>
                 <button
-                  className="btn btn-standard"
+                  className="btn btn-standard md:col-span-3 lg:col-span-1"
                   type="submit"
                   disabled={!dirty || !isValid}
                   onClick={() => {

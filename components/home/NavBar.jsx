@@ -11,9 +11,9 @@ export default function NavBar() {
           <span className="text-4xl font-black">
             <Link href="/">MyIO</Link>
           </span>
-          <span className="btn btn-standard md:mx-2">
-            <Link href="/dashboard">Try for Once</Link>
-          </span>
+          <Link href="/dashboard">
+            <span className="btn btn-standard md:mx-2">Try for Once</span>
+          </Link>
         </div>
         <div className="text-base font-medium">
           {menuItems.map((data, key) => (
