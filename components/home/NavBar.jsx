@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 export default function NavBar() {
-  const menuItems = ["Features", "Pricing"];
+  const menuItems = ["Features"];
 
   return (
     <div className="bg-gray-100 shadow-md">

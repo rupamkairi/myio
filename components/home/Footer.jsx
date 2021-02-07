@@ -23,7 +23,7 @@ export default function Footer() {
             <div>
               <p>Open Source project</p>
               <Link href="https://github.com/rupamkairi/myio">
-                <div className="my-1 py-2 px-4 border-2 rounded-md shadow-lg border-gray-500 hover:border-gray-700 bg-gray-500 hover:bg-gray-700  text-white">
+                <div className="my-1 py-2 px-4 border-2 rounded-md shadow-lg border-gray-500 hover:border-gray-700 bg-gray-500 hover:bg-gray-700  text-white cursor-pointer">
                   View and Contribute on GitHub
                 </div>
               </Link>
