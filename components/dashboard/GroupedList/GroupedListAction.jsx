@@ -74,7 +74,7 @@ export default function GroupedListAction() {
           disabled
         />
       </div>
-      <p className="text-xl text-gray-400 font-bold">Work in progress...</p>
+      <p className="text-xl text-gray-400 font-bold">Work in progress.</p>
     </div>
   );
 }
