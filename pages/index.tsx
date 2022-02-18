@@ -1,14 +1,12 @@
-import { Main } from "next/document";
 import Head from "next/head";
 import React from "react";
 
-export default function index() {
+export default function Index() {
   return (
     <>
       <Head>
-        <title>Document</title>
+        <title>App</title>
       </Head>
-
       <div>App</div>
     </>
   );
