@@ -9,7 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.8.5",
+    "@clerk/nextjs": "^2.11.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@supabase/supabase-js": "^1.30.3",
     "formik": "^2.2.6",
+    "framer-motion": "^6",
     "mongodb": "^4.4.0",
     "next": "12",
     "random-avatar-generator": "^2.0.0",

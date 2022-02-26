@@ -5,6 +5,7 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {},
     extend: {},
   },
   plugins: [],
