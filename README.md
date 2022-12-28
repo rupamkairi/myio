@@ -1,3 +1,0 @@
-# Reworking...
-
-## Check back later.
