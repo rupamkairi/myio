@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
 import { supabase } from "services/supabase";
 
-export default function Login() {
+export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function signInWithEmail() {
-    const { data, error } = await supabase.auth.signInWithPassword({
+  async function signUpWithEmail() {
+    const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
     });
 
     if (error) alert(error);
-    else console.log("Login", data);
+    else console.log("Signup", data);
   }
-
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Signup</h1>
       <input
         type="text"
         placeholder="email"
@@ -34,10 +33,10 @@ export default function Login() {
       <div>
         <button
           onClick={() => {
-            signInWithEmail();
+            signUpWithEmail();
           }}
         >
-          Login
+          Signup
         </button>
       </div>
     </div>
